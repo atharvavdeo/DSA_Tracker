@@ -5,7 +5,7 @@ It’s built with **HTML, CSS, and JavaScript** to provide a lightweight and res
 ---
 
 ##  Live Demo
-[ Click here to try the DSA Tracker](https://your-demo-link.com) 
+[Click here to try the DSA Tracker](https://atharvavdeo.github.io/DSA_Tracker/)
 
 ---
 
