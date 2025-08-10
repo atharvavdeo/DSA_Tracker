@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DSAKarlo - AI & DS Department</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-mono bg-mint min-h-screen">
+    
+    <nav class="sticky top-0 z-50 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-navy">DSA Tracker</h1>
+                </div>
+                <div id="navLinks" class="flex space-x-8">
+                    <a href="#home" data-section="home" class="nav-link text-gray-700 hover:text-navy" aria-label="Home">Home</a>
+                    <a href="#learn" data-section="learn" class="nav-link text-gray-700 hover:text-navy" aria-label="Learn">Learn</a>
+                    <a href="#submit" data-section="submit" class="nav-link text-gray-700 hover:text-navy" aria-label="Submit">Submit</a>
+                    <a href="#leaderboard" data-section="leaderboard" class="nav-link text-gray-700 hover:text-navy" aria-label="Leaderboard">Leaderboard</a>
+                    <a href="#knowme" data-section="knowme" class="nav-link text-gray-700 hover:text-navy" aria-label="Know Me">Know Me</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="text-center py-12 px-4">
+        <h1 class="typing-text text-5xl font-bold text-navy mb-4">
+            <span id="heroTitle" class="typing-animation">DSAKarlo</span>
+        </h1>
+        <p class="text-lg text-gray-600">Built by and for Dept. of Artificial Intelligence & Data Science</p>
+    </div>
+
+    <div class="site-main max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        
+        <section id="home" class="section active">
+            <div class="card p-8 mb-8">
+                <h2 class="text-3xl font-bold text-navy mb-4">Welcome to DSA Tracker</h2>
+                <p class="text-gray-700 mb-6">
+                    Track your daily Data Structures and Algorithms practice, compete with peers, and improve your problem-solving skills. 
+                    Our platform helps AI & DS students maintain consistency in their coding journey.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <a href="https://www.codechef.com" target="_blank" class="platform-card" aria-label="CodeChef">
+                        <i class="fas fa-code text-3xl text-navy mb-2"></i>
+                        <p class="font-semibold">CodeChef</p>
+                    </a>
+                    <a href="https://codeforces.com" target="_blank" class="platform-card" aria-label="Codeforces">
+                        <i class="fas fa-laptop-code text-3xl text-navy mb-2"></i>
+                        <p class="font-semibold">Codeforces</p>
+                    </a>
+                    <a href="https://leetcode.com" target="_blank" class="platform-card" aria-label="LeetCode">
+                        <i class="fas fa-terminal text-3xl text-navy mb-2"></i>
+                        <p class="font-semibold">LeetCode</p>
+                    </a>
+                    <a href="https://www.hackerrank.com" target="_blank" class="platform-card" aria-label="HackerRank">
+                        <i class="fas fa-keyboard text-3xl text-navy mb-2"></i>
+                        <p class="font-semibold">HackerRank</p>
+                    </a>
+                    <a href="https://www.kaggle.com" target="_blank" class="platform-card" aria-label="Kaggle">
+                        <i class="fas fa-chart-line text-3xl text-navy mb-2"></i>
+                        <p class="font-semibold">Kaggle</p>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="platform-card" aria-label="GitHub">
+                        <i class="fab fa-github text-3xl text-navy mb-2"></i>
+                        <p class="font-semibold">GitHub</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card p-6">
+                    <div class="text-3xl font-bold text-navy" id="totalUsers">0</div>
+                    <div class="text-gray-600">Active Users</div>
+                </div>
+                <div class="card p-6">
+                    <div class="text-3xl font-bold text-mint-dark" id="totalSubmissions">0</div>
+                    <div class="text-gray-600">Total Submissions</div>
+                </div>
+                <div class="card p-6">
+                    <div class="text-3xl font-bold text-navy-light" id="todaySubmissions">0</div>
+                    <div class="text-gray-600">Today's Submissions</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learn" class="section">
+            <div class="learn-placeholder">
+                <span class="typing-animation learn-coming-soon" aria-label="Coming Soon">
+                    Coming Soon…
+                </span>
+            </div>
+        </section>
+
+        <section id="submit" class="section">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold text-navy mb-6">Submit Your Solution</h2>
+                
+                <div id="submissionAlert" class="hidden mb-4 p-4 rounded-lg"></div>
+                
+                <form id="submissionForm" class="space-y-6" aria-label="Daily submission form">
+                    <div class="form-group">
+                        <label for="userName" class="block text-navy font-semibold mb-2">Your Name</label>
+                        <input type="text" id="userName" name="userName" placeholder="Enter your display name" class="w-full px-4 py-2 border rounded-lg" required aria-required="true" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="platform" class="block text-navy font-semibold mb-2">Platform</label>
+                        <select id="platform" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-navy" aria-required="true">
+                            <option value="">Select platform...</option>
+                            <option value="CodeChef">CodeChef</option>
+                            <option value="Codeforces">Codeforces</option>
+                            <option value="LeetCode">LeetCode</option>
+                            <option value="HackerRank">HackerRank</option>
+                            <option value="GeeksforGeeks">GeeksforGeeks</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="submissionDate" class="block text-navy font-semibold mb-2">Submission Date</label>
+                        <input type="date" id="submissionDate" readonly class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-100">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="block text-navy font-semibold mb-2">Problem(s)</label>
+                        <div id="problemsContainer" class="space-y-4" aria-live="polite"></div>
+                        <div class="flex items-center justify-between mt-2">
+                            <button type="button" id="addProblemBtn" class="px-3 py-2 bg-navy text-white rounded-md">Add another</button>
+                            <span id="requiredHint" class="text-sm text-gray-600"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes" class="block text-navy font-semibold mb-2">Notes (Optional)</label>
+                        <textarea id="notes" rows="3" placeholder="Any additional comments..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-navy"></textarea>
+                    </div>
+
+                    <div id="pendingProblems" class="hidden bg-yellow-100 border border-yellow-400 rounded-lg p-4">
+                        <p class="text-yellow-800 font-semibold">⚠️ You have pending problems to submit</p>
+                        <p class="text-yellow-700" id="pendingCount"></p>
+                    </div>
+
+                    <button type="submit" class="w-full bg-navy text-white font-bold py-3 rounded-lg btn-hover">
+                        Submit Solution
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="leaderboard" class="section">
+            <div class="card overflow-hidden">
+                <div class="bg-navy text-white p-6">
+                    <h2 class="text-3xl font-bold">Leaderboard</h2>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full table-alt">
+                        <thead class="bg-beige border-b border-gray-200">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-navy font-semibold">Rank</th>
+                                <th class="px-6 py-3 text-left text-navy font-semibold">Name</th>
+                                <th class="px-6 py-3 text-left text-navy font-semibold">Score</th>
+                                <th class="px-6 py-3 text-left text-navy font-semibold">Streak</th>
+                                <th class="px-6 py-3 text-left text-navy font-semibold">Warnings</th>
+                                <th class="px-6 py-3 text-left text-navy font-semibold">Pending</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        
+        <div id="leaderboardOverlay" class="overlay hidden" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="overlay-backdrop" data-close="leaderboard"></div>
+            <div class="overlay-card">
+                <button id="overlayCloseBtn" class="overlay-close" aria-label="Close leaderboard">×</button>
+                <h3 class="text-2xl font-bold text-navy mb-4">Leaderboard</h3>
+                <div id="overlayLeaderboardGrid" class="overlay-grid"></div>
+            </div>
+        </div>
+
+        
+        <section id="knowme" class="section">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold text-navy mb-6">Meet Our Coders</h2>
+                <div id="bentoGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+    <footer class="bg-navy text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-8 mb-4">
+                <a href="https://chat.whatsapp.com/IA6gyOd43rI3dZDYD1MFqa?mode=ac_t" target="_blank" class="hover:text-mint">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <span class="block text-sm mt-1">WhatsApp</span>
+                </a>
+                <a href="https://discord.gg/" target="_blank" class="hover:text-mint">
+                    <i class="fab fa-discord text-2xl"></i>
+                    <span class="block text-sm mt-1">Discord</span>
+                </a>
+            </div>
+            <p class="text-sm opacity-75">2025 AI-DS</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <div id="profileModal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-overlay" data-close="modal"></div>
+        <div class="modal-content" role="document">
+            <button id="modalCloseBtn" class="modal-close" aria-label="Close profile modal">×</button>
+            <h3 id="modalTitle" class="text-2xl font-bold text-navy mb-4"></h3>
+            <div id="modalLinks" class="flex flex-wrap gap-3"></div>
+        </div>
+    </div>
+</body>
+</html>
