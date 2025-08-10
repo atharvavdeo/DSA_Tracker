@@ -12,13 +12,13 @@ It’s built with **HTML, CSS, and JavaScript** to provide a lightweight and res
 ##  Screenshots
 
 ### Home Page
-![Screenshot 1](screenshots/screenshot1.png)
+![Screenshot 1](screenshot1.png)
 
 ### Add Problem Page
-![Screenshot 2](screenshots/screenshot2.png)
+![Screenshot 2](screenshot2.png)
 
 ### Leaderboard Page
-![Screenshot 3](screenshots/screenshot3.png)
+![Screenshot 3](screenshot3.png)
 
 
 ---
